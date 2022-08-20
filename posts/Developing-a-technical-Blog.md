@@ -505,7 +505,7 @@ Yay! 🎉 Code highlighting. We did it!
 
 ### Final words
 
-If you came so far, thank you very much for reading my first post over how I started developing this thing. 🙂 I hope some of you found some helpful information here, feel free to reach out to me every time! Maybe I’ll do more of these to update on further development.
+If you came so far, thank you very much for reading my very first post about how I started developing this thing. 🙂 I hope some of you found some helpful information here, feel free to reach out to me every time! Maybe I’ll do more of these to update on further development.
 
 The code for this is available on Github: [https://github.com/svenliebig/blog/tree/e6b1363ffcdf01aa456d785a99f7ecf2ea2092f3](https://github.com/svenliebig/blog/tree/e6b1363ffcdf01aa456d785a99f7ecf2ea2092f3), the link contains the commit hash to the exact state of the code that this post is referring to!
 
