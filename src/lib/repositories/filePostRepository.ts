@@ -8,14 +8,12 @@ export const filePostRespository: PostRespository = {
 		try {
 			const files = readdirSync('posts')
 			const markdownFiles = files.filter((file) => file.endsWith('.md'))
-			console.log(markdownFiles)
 			return markdownFiles.map((file) => {
 				return {
-					name: file
+					name: file.replace(/\.md$/, '')
 				}
 			})
 		} catch (e) {
-			console.log(e)
 			// TODO error handling
 			return []
 		}
@@ -23,7 +21,7 @@ export const filePostRespository: PostRespository = {
 	getPost(id) {
 		const converter = new Converter()
 
-		const path = resolve('posts', `${id.replaceAll(/-/g, ' ')}.md`)
+		const path = resolve('posts', `${id}.md`)
 		const exists = existsSync(path)
 
 		if (exists) {

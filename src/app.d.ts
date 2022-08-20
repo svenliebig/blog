@@ -7,3 +7,9 @@ declare namespace App {
 	// interface PrivateEnv {}
 	// interface PublicEnv {}
 }
+
+interface Window {
+	hljs: {
+		highlightElement(el: Element): void
+	}
+}
