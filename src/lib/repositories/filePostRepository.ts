@@ -1,6 +1,9 @@
 import { existsSync, readdirSync, readFileSync } from 'fs'
 import { resolve } from 'path'
-import { Converter } from 'showdown'
+
+import showdown from 'showdown'
+const { Converter } = showdown
+
 import type { PostRespository } from './postRepository'
 
 export const filePostRespository: PostRespository = {
