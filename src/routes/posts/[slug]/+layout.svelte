@@ -4,8 +4,8 @@
 
 <style>
 	.post-container {
-		max-width: 46rem;
-		padding: 0 2rem;
+		max-width: var(--content-width);
+		padding: 0 var(--content-spacing);
 		margin: 0 auto;
 	}
 </style>
