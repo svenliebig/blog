@@ -8,7 +8,7 @@
 	<ul>
 		{#each data.posts as post}
 			<li>
-				<a href="/posts/{post.name}">{post.name}</a>
+				<a href="/posts/{post.title}">{post.title}</a>
 			</li>
 		{/each}
 	</ul>
