@@ -1,6 +1,6 @@
 # Installing & Configuring Apache2 on Debian 11 (Bullseye)
 
-# Installing
+## Installing
 
 To install `apache2` in our Debian 11 bullseye, we only need one command for now:
 
@@ -69,7 +69,7 @@ The directories: `mods-enabled`,`conf-enabled` & `sites-enabled` but not the `*-
 
 That means, to add a sites, we want to add a file in the `sites-available` directory and enable it with the command `a2ensite`.
 
-# Add Sites to Apache2
+## Add Sites to Apache2
 
 To add a page to `apache2`, you want to go to `/etc/apache2/sites-available` and create a new file. The name of the file should be something like `yourdomain.com.conf` and add the following content:
 
@@ -118,3 +118,5 @@ to figure out what is going on!
 We configured all of these things with the `root` user, which is fine for the moment but maybe not ideally for the future.
 
 I hope these information will help someone setting up their `apache2` on a server! Thanks for reading.
+
+If you want to read about user management and how to grant specific user access to the commands they need, maybe have a look at my other post [Create and Manage Users in Unix](/posts/Create-and-Manage-Users-in-Unix). :)

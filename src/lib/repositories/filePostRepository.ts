@@ -54,6 +54,12 @@ function getDescriptionById(id: string): Pick<Post, 'description' | 'keywords'> 
 				description: 'How to install and configure apache2 on debian 11 bullseye.',
 				keywords: 'apache2, debian 11, bullseye, configure, install'
 			}
+		case 'Create-and-Manage-Users-in-Unix':
+			return {
+				description:
+					'How to create and manage user in unix, give them specific rights and sudo powers for specific commands.',
+				keywords: 'unix, user management, rights, sudo, privilege, groups'
+			}
 		default:
 			return {
 				description: `A technical blog entry about ${id.replace(/-/g, ' ')}.`,
