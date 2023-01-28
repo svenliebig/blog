@@ -68,7 +68,7 @@
 				Linkedin
 			</a>
 		</div>
-		<p>All rights reserved © Sven Liebig 2022</p>
+		<p>All rights reserved © Sven Liebig {new Date().getFullYear()}</p>
 	</div>
 </footer>
 

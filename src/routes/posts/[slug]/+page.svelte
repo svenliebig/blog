@@ -10,4 +10,9 @@
 	})
 </script>
 
+<svelte:head>
+	<meta name="description" content={data.description}>
+	<meta name="keywords" content={data.keywords}>
+</svelte:head>
+
 {@html data.content}

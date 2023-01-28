@@ -1,3 +1,4 @@
+import type { Post } from '$lib/models/post'
 import { existsSync, readdirSync, readFileSync } from 'fs'
 import { resolve } from 'path'
 
@@ -32,10 +33,31 @@ export const filePostRespository: PostRespository = {
 			const html = converter.makeHtml(markdown)
 			return {
 				name: id,
-				content: html
+				content: html,
+				...getDescriptionById(id)
 			}
 		} else {
 			return null
 		}
+	}
+}
+
+function getDescriptionById(id: string): Pick<Post, 'description' | 'keywords'> {
+	switch (id) {
+		case 'Developing-a-technical-Blog':
+			return {
+				description: 'How to write a technical blog based on typescript, svelte & markdown files.',
+				keywords: 'svelte, markdown, technical blog, typescript'
+			}
+		case 'Installing-and-Configuring-Apache2-on-Debian-11-(Bullseye)':
+			return {
+				description: 'How to install and configure apache2 on debian 11 bullseye.',
+				keywords: 'apache2, debian 11, bullseye, configure, install'
+			}
+		default:
+			return {
+				description: `A technical blog entry about ${id.replace(/-/g, ' ')}.`,
+				keywords: 'HTML, CSS, TypeScript'
+			}
 	}
 }

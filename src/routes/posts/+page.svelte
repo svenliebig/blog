@@ -2,6 +2,11 @@
 	export let data: import('./$types').PageData
 </script>
 
+<svelte:head>
+	<title>Sven Liebig - Tech Blog</title>
+	<meta name="description" content="A technical blog by Sven Liebig writing about different frontend technology related topics.">
+</svelte:head>
+
 <div class="container">
 	<h1>Posts</h1>
 
