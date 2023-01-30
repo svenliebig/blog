@@ -3,13 +3,13 @@
 
 
 	let postName: string = ""
-	onMount(() => postName = location.pathname.replace("/posts/", "").replace(/-/g, " "))
+	onMount(() => postName = location.pathname.replace("/", "").replace(/-/g, " "))
 </script>
 
 <nav class="breadcrumb">
 	<ul>
 		<li>
-			<a href="/posts">Posts</a>
+			<a href="/">Posts</a>
 		</li>
 		<li>
 			{postName}

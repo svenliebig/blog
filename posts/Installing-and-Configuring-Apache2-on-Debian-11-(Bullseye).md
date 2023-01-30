@@ -119,4 +119,4 @@ We configured all of these things with the `root` user, which is fine for the mo
 
 I hope these information will help someone setting up their `apache2` on a server! Thanks for reading.
 
-If you want to read about user management and how to grant specific user access to the commands they need, maybe have a look at my other post [Create and Manage Users in Unix](/posts/Create-and-Manage-Users-in-Unix). :)
+If you want to read about user management and how to grant specific user access to the commands they need, maybe have a look at my other post [Create and Manage Users in Unix](/Create-and-Manage-Users-in-Unix). :)
