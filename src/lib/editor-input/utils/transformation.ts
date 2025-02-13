@@ -2,8 +2,9 @@ import { CSSProperties } from "react";
 
 type Transformation = {
   style: CSSProperties;
+  margins: CSSProperties;
   condition: (value: string) => boolean;
-  transformation: (value: string, cursorPosition: number) => string;
+  indicator: string;
 };
 
 const H1_SIZE = "3.75rem"; // 60px
@@ -27,8 +28,12 @@ export const transformations: Transformation[] = [
       lineHeight: H1_LINE_HEIGHT,
       height: H1_LINE_HEIGHT,
     },
+    margins: {
+      paddingTop: "2rem",
+      paddingBottom: ".5rem",
+    },
     condition: (value) => value.startsWith("# "),
-    transformation: (value) => value.slice(2),
+    indicator: "# ",
   },
   {
     style: {
@@ -36,8 +41,12 @@ export const transformations: Transformation[] = [
       lineHeight: H2_LINE_HEIGHT,
       height: H2_LINE_HEIGHT,
     },
+    margins: {
+      paddingTop: "2rem",
+      paddingBottom: ".5rem",
+    },
     condition: (value) => value.startsWith("## "),
-    transformation: (value) => value.slice(3),
+    indicator: "## ",
   },
   {
     style: {
@@ -45,8 +54,12 @@ export const transformations: Transformation[] = [
       lineHeight: H3_LINE_HEIGHT,
       height: H3_LINE_HEIGHT,
     },
+    margins: {
+      paddingTop: "2rem",
+      paddingBottom: ".5rem",
+    },
     condition: (value) => value.startsWith("### "),
-    transformation: (value) => value.slice(4),
+    indicator: "### ",
   },
   {
     style: {
@@ -54,8 +67,12 @@ export const transformations: Transformation[] = [
       lineHeight: H4_LINE_HEIGHT,
       height: H4_LINE_HEIGHT,
     },
+    margins: {
+      paddingTop: "2rem",
+      paddingBottom: ".5rem",
+    },
     condition: (value) => value.startsWith("#### "),
-    transformation: (value) => value.slice(5),
+    indicator: "#### ",
   },
   {
     style: {
@@ -63,8 +80,12 @@ export const transformations: Transformation[] = [
       lineHeight: H5_LINE_HEIGHT,
       height: H5_LINE_HEIGHT,
     },
+    margins: {
+      paddingTop: "2rem",
+      paddingBottom: ".5rem",
+    },
     condition: (value) => value.startsWith("##### "),
-    transformation: (value) => value.slice(6),
+    indicator: "##### ",
   },
   {
     style: {
@@ -72,7 +93,26 @@ export const transformations: Transformation[] = [
       lineHeight: H6_LINE_HEIGHT,
       height: H6_LINE_HEIGHT,
     },
+    margins: {
+      paddingTop: "2rem",
+      paddingBottom: ".5rem",
+    },
     condition: (value) => value.startsWith("###### "),
-    transformation: (value) => value.slice(7),
+    indicator: "###### ",
+  },
+  {
+    style: {
+      fontFamily: "Tangerine",
+      fontSize: "2rem",
+    },
+    margins: {
+      borderLeft: "2px solid #d3d3d3",
+      paddingTop: "0.5rem",
+      paddingBottom: "0.5rem",
+      marginBottom: "0.5rem",
+      paddingLeft: "1rem",
+    },
+    condition: (value) => value.startsWith("> "),
+    indicator: "> ",
   },
 ];
