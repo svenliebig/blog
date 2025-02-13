@@ -1,5 +1,6 @@
 import { createContext, createRef, useContext, useRef } from "react";
 import { createStore, StateCreator, StoreApi, useStore } from "zustand";
+import { transformations } from "./utils/transformation";
 
 type LineProps = {
   index: number;
@@ -9,6 +10,7 @@ const PREVENTED_KEYS = ["Enter", "Tab", "ArrowUp", "ArrowDown"];
 
 const Line = ({ index }: LineProps) => {
   const { store } = useContext(context);
+  const line = useStore(store, (state) => state.line);
   const edit = useStore(store, (state) => state.edit);
   const setCursorPosition = useStore(store, (state) => state.setCursorPosition);
   const content = useStore(store, (state) => state.content[index]);
@@ -24,13 +26,22 @@ const Line = ({ index }: LineProps) => {
     return { line: index, column };
   }
 
-  const style = content.value.startsWith("#") ? { fontSize: "28px" } : {};
+  const transformation = transformations.find((t) => {
+    return t.condition(content.value);
+  });
 
   return (
     <input
       type="text"
       ref={content.ref}
-      value={content.value}
+      value={
+        line === index
+          ? content.value
+          : transformation?.transformation(
+              content.value,
+              getCursorPosition().column
+            )
+      }
       onChange={(e) => {
         const { line, column } = getCursorPosition();
         setCursorPosition(line, column);
@@ -51,7 +62,7 @@ const Line = ({ index }: LineProps) => {
         borderWidth: "1px",
         margin: "1px",
         outline: "none",
-        ...style,
+        ...transformation?.style,
       }}
       onKeyDown={(e) => {
         if (PREVENTED_KEYS.includes(e.key)) {
@@ -233,8 +244,11 @@ const createContentStore: StateCreator<EditorStore, [], [], ContentStore> = (
   set
 ) => ({
   content: [
-    { value: "👋🏻 Hello world", ref: createInputRef() },
+    { value: "# 👋🏻 Hello world", ref: createInputRef() },
     { value: "How are you?", ref: createInputRef() },
+    { value: "## Subheading", ref: createInputRef() },
+    { value: "I'm fine, thank you!", ref: createInputRef() },
+    { value: "### Subsubheading", ref: createInputRef() },
     { value: "I'm fine, thank you!", ref: createInputRef() },
   ],
   setContent: (
